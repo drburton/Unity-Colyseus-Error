@@ -3,9 +3,10 @@ import express from "express";
 import cors from "cors";
 
 import { Server } from "colyseus";
+import { RelayRoom } from "colyseus";
 //import { monitor } from "@colyseus/monitor"
 import { DemoRoom } from "./rooms/DemoRoom";
-import { TankRoom1 } from "./rooms/TankRoom1";
+import { TankRoomAlpha } from "./rooms/TankRoomAlpha";
 
 const PORT = Number(process.env.PORT || 2567);
 const app = express();
@@ -24,7 +25,9 @@ const gameServer = new Server({
 
 // Register room handlers
 gameServer.define("demo", DemoRoom);
-gameServer.define("tank1", TankRoom1);
+gameServer.define("tanka", TankRoomAlpha);
+gameServer.define("relay", RelayRoom, {maxClients: 4, allowReconnectionTime: 120});
+
 
 // register colyseus monitor AFTER registering your room handlers
 //app.use("/colyseus", monitor());

@@ -83,10 +83,10 @@ export class TankRoom1 extends Room<ColyseusRoomState> {
       });
 
       this.onMessage("0", (client, message) => {
-        console.log("Trying to resolve 0 " + client + " " + message);
-      });      
+          console.log("Received 0" + message );
+      });
 
-// Set the callback for the "createEntity" message
+      // Set the callback for the "createEntity" message
       this.onMessage("createEntity", (client, creationMessage) => {
           // Generate new UID for the entity
           let entityViewID = generateId();
