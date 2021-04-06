@@ -6,7 +6,7 @@
     "url": "git://github.com/colyseus/colyseus-unity3d.git"
   },
   "scripts": {
-    "schema-codegen": "schema-codegen DemoRoom.ts --csharp --output ../Assets/",
+    "schema-codegen": "schema-codegen rooms/TankRoomAlpha.ts --csharp --output ../Assets/",
     "start": "nodemon --watch '**.ts' --exec ts-node ./index.ts"
   },
   "engines": {
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@colyseus/social": "^0.10.0",
-    "colyseus": "^0.14.1",
+    "colyseus": "^0.14.13",
     "cors": "^2.8.5",
     "express": "^4.13.3",
     "express-jwt": "^5.3.1",
