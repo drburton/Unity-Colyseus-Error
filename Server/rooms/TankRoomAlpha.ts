@@ -19,7 +19,6 @@ class Entity extends Schema {
 }
 
 class Player extends Entity {
-    @type("string") id: string;
     @type("string") sessionId: string;
     @type("boolean") connected: boolean;
 //    @type("number") timestamp: number;

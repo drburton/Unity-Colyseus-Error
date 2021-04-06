@@ -9,12 +9,9 @@ using Colyseus.Schema;
 
 public partial class Player : Entity {
 	[Type(9, "string")]
-	public string id = default(string);
-
-	[Type(10, "string")]
 	public string sessionId = default(string);
 
-	[Type(11, "boolean")]
+	[Type(10, "boolean")]
 	public bool connected = default(bool);
 }
 
