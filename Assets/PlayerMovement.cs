@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-
+    public ColyseusClient colyseusClient; 
     public float speed = 12f;
     public float gravity = -10f;
 //    public float jumpHeight = 2f;
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 #endif
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float x;
         float z;
@@ -73,8 +73,15 @@ public class PlayerMovement : MonoBehaviour
         }
 */
         Vector3 move = transform.right * x + transform.forward * z;
+//        if (x != 0 | z != 0 ) { Debug.Log(x,z);}
 
-        controller.Move(move * speed * Time.deltaTime);
+        if(move != Vector3.zero) 
+            {
+                controller.Move(move * speed * Time.deltaTime);
+                colyseusClient.OnTankMove();
+            }
+
+//        controller.Move(move * speed * Time.deltaTime);
 
 
 /*        if(jumpPressed && isGrounded)

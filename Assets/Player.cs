@@ -13,5 +13,8 @@ public partial class Player : Entity {
 
 	[Type(10, "boolean")]
 	public bool connected = default(bool);
+
+	[Type(11, "int8")]
+	public int spawnpoint = default(int);
 }
 

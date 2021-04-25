@@ -9,7 +9,7 @@ using UnityEngine;
 public class LookWithMouse : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
-
+    public ColyseusClient colyseusClient;
     public Transform playerBody;
 
     float xRotation = 0f;
@@ -21,7 +21,7 @@ public class LookWithMouse : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 #if ENABLE_INPUT_SYSTEM
         float mouseX = 0, mouseY = 0;
@@ -52,5 +52,9 @@ public class LookWithMouse : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+        if(Input.GetAxis("Mouse X") != 0)
+            {
+                colyseusClient.OnTankMove();  
+            }
     }
 }
